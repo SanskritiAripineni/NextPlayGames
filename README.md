@@ -9,7 +9,7 @@ Repository: [https://github.com/SanskritiAripineni/NextPlayGames.git](https://gi
 - Anonymous guest session auto-created on first launch
 - Task creation with required `title`
 - Task listing from Supabase
-- Toggle task complete/incomplete
+- Check task complete/incomplete
 - Loading and error states
 - Bonus fields: `description`, `priority`, `due_date`
 - RLS policies so each guest can only access their own rows
@@ -43,16 +43,6 @@ Repository: [https://github.com/SanskritiAripineni/NextPlayGames.git](https://gi
    - `SUPABASE_URL`
    - `SUPABASE_ANON_KEY`
 
-## Local Run
-
-Run a static server from the repo root.
-
-```bash
-python3 -m http.server 5173
-```
-
-Open [http://localhost:5173](http://localhost:5173).
-
 ## Required Database Fields
 
 Implemented in `supabase/schema.sql`:
@@ -77,29 +67,3 @@ Bonus fields also implemented:
 - Result:
   - User A sees only User A tasks.
   - User B sees only User B tasks.
-
-## Hosting (Live Demo)
-
-Any free static host works. Recommended: GitHub Pages, Netlify, or Vercel.
-
-GitHub Pages quick path:
-
-1. Push this repo to GitHub `main`.
-2. In GitHub: `Settings -> Pages -> Build and deployment`.
-3. Set source to `GitHub Actions`.
-4. The included workflow (`.github/workflows/deploy-pages.yml`) deploys automatically.
-5. Open the published Pages URL after workflow success.
-6. Ensure deployed `config.js` has your Supabase URL + anon key.
-
-## Collaborator Access (Evaluator Requirement)
-
-- GitHub repo:
-  - `Settings -> Collaborators -> Add people`
-- Supabase project:
-  - `Project Settings -> Team -> Invite member`
-
-## Security Notes
-
-- Never expose the Supabase service role key in frontend code.
-- Use only the Supabase anon public key in `config.js`.
-- Do not commit private credentials or `.env` secrets to GitHub.
