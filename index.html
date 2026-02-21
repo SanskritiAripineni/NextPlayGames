@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextPlay Tasks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Guest Task Manager</p>
+          <h1>NextPlay Tasks</h1>
+        </div>
+        <p id="user-label" class="user-label">Guest: not signed in</p>
+      </header>
+
+      <section class="status-panel">
+        <p id="loading-message" class="loading-message" hidden>Loading...</p>
+        <p id="error-message" class="error-message" hidden></p>
+      </section>
+
+      <section class="card">
+        <h2>Create Task</h2>
+        <form id="task-form" class="task-form">
+          <label for="title">Title *</label>
+          <input id="title" name="title" type="text" maxlength="120" required />
+
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="3" maxlength="300"></textarea>
+
+          <div class="row-inputs">
+            <div>
+              <label for="priority">Priority</label>
+              <select id="priority" name="priority">
+                <option value="low">Low</option>
+                <option value="normal" selected>Normal</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="due_date">Due Date</label>
+              <input id="due_date" name="due_date" type="date" />
+            </div>
+          </div>
+
+          <button id="submit-button" type="submit">Create Task</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="tasks-header">
+          <h2>Your Tasks</h2>
+          <button id="refresh-button" type="button" class="secondary-btn">Refresh</button>
+        </div>
+        <p id="empty-state" class="empty-state" hidden>No tasks yet. Add your first one.</p>
+        <ul id="task-list" class="task-list"></ul>
+      </section>
+    </main>
+
+    <script src="./config.js"></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
+

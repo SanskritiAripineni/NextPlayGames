@@ -1,0 +1,265 @@
+:root {
+  --bg: #f3f8ff;
+  --panel: #ffffff;
+  --panel-shadow: 0 14px 40px rgba(17, 23, 38, 0.1);
+  --text: #14213d;
+  --muted: #53607a;
+  --accent: #0f766e;
+  --accent-deep: #115e59;
+  --danger: #b42318;
+  --line: #d5dded;
+  --low: #166534;
+  --normal: #1d4ed8;
+  --high: #c2410c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", "Avenir Next", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 0% 0%, #d7f4ef 0%, rgba(215, 244, 239, 0) 46%),
+    radial-gradient(circle at 100% 100%, #dbe7ff 0%, rgba(219, 231, 255, 0) 56%),
+    var(--bg);
+}
+
+.app-shell {
+  width: min(760px, calc(100vw - 2rem));
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+.user-label {
+  margin-top: 0.35rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid rgba(19, 41, 75, 0.1);
+  border-radius: 16px;
+  box-shadow: var(--panel-shadow);
+  padding: 1rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.task-form {
+  display: grid;
+  gap: 0.6rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.55rem 0.65rem;
+  background: #fff;
+  color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.row-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #f8fbff;
+  padding: 0.6rem 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-deep);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  background: #edf4ff;
+  color: #123a78;
+}
+
+.secondary-btn:hover {
+  background: #dce9ff;
+}
+
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.task-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.45rem;
+  background: #fff;
+}
+
+.task-item.complete {
+  background: #f5fbf9;
+}
+
+.task-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+.task-check {
+  margin-top: 0.2rem;
+  width: 16px;
+  height: 16px;
+}
+
+.task-title {
+  font-size: 1rem;
+}
+
+.task-title.complete {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-description {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  padding: 0.2rem 0.5rem;
+  color: var(--muted);
+}
+
+.pill.priority-low {
+  color: var(--low);
+  border-color: rgba(22, 101, 52, 0.25);
+}
+
+.pill.priority-normal {
+  color: var(--normal);
+  border-color: rgba(29, 78, 216, 0.25);
+}
+
+.pill.priority-high {
+  color: var(--high);
+  border-color: rgba(194, 65, 12, 0.25);
+}
+
+.loading-message,
+.empty-state {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.error-message {
+  color: var(--danger);
+  background: #fff2f1;
+  border: 1px solid #f4c7c4;
+  border-radius: 10px;
+  padding: 0.6rem;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: calc(100vw - 1rem);
+    margin-top: 1rem;
+  }
+
+  .app-header {
+    flex-direction: column;
+  }
+
+  .row-inputs {
+    grid-template-columns: 1fr;
+  }
+}
+
